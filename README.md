@@ -101,16 +101,6 @@ Compile-time constants allow performance/security trade-offs:
 - `QRH_DIFFUSIONS`: Number of diffusion passes (default: 4)  
 - `QRH_MATRIX_ROUNDS`: Heavy matrix operation rounds (default: 2)
 
-## 🚀 Performance Considerations
-
-The algorithm includes performance documentation:
-> "Matrix rounds are very heavy - 20 MB/sec per additional round"
-
-This demonstrates awareness of real-world performance implications in cryptographic implementations. Current performance characteristics show:
-- **Hashing Throughput**: 117.33 MB/s average
-- **Large Data Processing**: 194.24 MB/s sustained throughput
-- **Security vs Performance**: Configurable parameters allow tuning based on requirements
-
 ## 💻 Usage Example
 
 ```c
@@ -130,13 +120,6 @@ uint8_t *allocated_hash = qrh_alloc_256(data, data_len);
 ```
 
 ## 🔧 Implementation Details
-
-### Architecture
-
-- **Block Size**: 64 bytes (512 bits)
-- **Hash Size**: 32 bytes (256 bits) 
-- **Word Size**: 16 × 32-bit words
-- **Endianness**: Little-endian output format
 
 ### Key Components
 
