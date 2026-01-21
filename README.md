@@ -49,17 +49,6 @@ Benchmark config:
     Total Runs: 3
     Crypto input buffer size: 8 MB
     Hash algo used: QRH-256
-    Cipher algo used: SalCha-512
-
-Encryption benchmark:
-    Total time: 319.952 ms
-    Average time: 106.651 ms
-    Average throughput: 75.01 MB/s
-
-Decryption benchmark:
-    Total time: 320.044 ms
-    Average time: 106.681 ms
-    Average throughput: 74.99 MB/s
 
 Hashing benchmark:
     Total time: 922.224 ms
