@@ -1,4 +1,3 @@
-```markdown
 # QRH-256 Cryptographic Hash Algorithm
 
 ## Overview
@@ -32,6 +31,65 @@ QRH-256 is a custom cryptographic hash function implementation designed for educ
 - **Length Padding**: Secure message length incorporation into final hash
 - **Keyed Hashing**: HMAC variant for authenticated hashing applications
 
+## Performance Benchmarks
+
+### Large Data Processing Performance
+
+```
+Large Data Benchmark Summary
+============================
+Average run time: 520.740 ms
+Total time: 1562.220 ms
+Total data processed: 72.00 MB
+Total throughput: 46.09 MB/s
+
+Successful decryptions: 3/3
+
+Benchmark config:
+    Total Runs: 3
+    Crypto input buffer size: 8 MB
+    Hash algo used: QRH-256
+    Cipher algo used: SalCha-512
+
+Encryption benchmark:
+    Total time: 319.952 ms
+    Average time: 106.651 ms
+    Average throughput: 75.01 MB/s
+
+Decryption benchmark:
+    Total time: 320.044 ms
+    Average time: 106.681 ms
+    Average throughput: 74.99 MB/s
+
+Hashing benchmark:
+    Total time: 922.224 ms
+    Average time: 307.408 ms
+    Average throughput: 26.02 MB/s
+```
+
+### Avalanche Effect Analysis
+
+The hash function demonstrates strong avalanche properties, which is critical for cryptographic security:
+
+```
+QRH-256 Hash Bit Flip Benchmark
+==============================
+Test Strings:
+    String 1: "The quick brown fox jumps over the lazy dog"
+    String 2: "The quick brown fox jumps over the lazy dof"  (1 character difference)
+
+Results:
+    Hash string1: 17f474bce744ebf23a17ce10983ef09198c79cac62fbbdadc491353ddb15d6dd
+    Hash string2: cc67cd66c8f5459edf063e828f68234e5c9aeb1c9bcbc280a0e20dc8a7625438
+    Bits flipped: 143/256 (55.86%)
+    
+    HMAC string1: 876ae3d95ee7811404d291f6b1bbaf766c827a4454ccab8485a506b5fdffb77a
+    HMAC string2: 223fc836db59adad8ed7f09105070123687789ead05c0b7e5bdc7ef9f2912069
+    HMAC bits flipped: 132/256 (51.56%)
+```
+
+The 55.86% bit flip rate in the hash output demonstrates excellent avalanche effect, approaching the ideal 50% rate that indicates strong cryptographic behavior.
+
 ## API Reference
 
 ### Main Hash Functions
@@ -61,7 +119,10 @@ Compile-time constants allow performance/security trade-offs:
 The algorithm includes performance documentation:
 > "Matrix rounds are very heavy - 20 MB/sec per additional round"
 
-This demonstrates awareness of real-world performance implications in cryptographic implementations.
+This demonstrates awareness of real-world performance implications in cryptographic implementations. Current performance characteristics show:
+- **Hashing Throughput**: 26.02 MB/s average
+- **Large Data Processing**: 46.09 MB/s sustained throughput
+- **Security vs Performance**: Configurable parameters allow tuning based on requirements
 
 ## Usage Example
 
@@ -106,16 +167,8 @@ This implementation demonstrates several important software engineering practice
 - **Error Handling**: Proper bounds checking and memory management
 - **Code Reusability**: Helper functions for common operations
 - **Performance Awareness**: Inline functions and optimization considerations
+- **Benchmarking**: Systematic performance evaluation and analysis
 
 ## Disclaimer
 
 This is an educational implementation created to demonstrate cryptographic concepts and C programming skills. While implemented with security best practices in mind, it has not undergone formal cryptanalysis or security auditing. Use established cryptographic libraries for production applications requiring security guarantees.
-```
-
-This README presents your cryptographic implementation professionally while highlighting the technical skills and knowledge it demonstrates. It's employer-friendly because it:
-
-1. Clearly explains what the code does without making exaggerated security claims
-2. Highlights your technical competencies in cryptography and C programming
-3. Shows understanding of security engineering principles
-4. Demonstrates good documentation and communication skills
-5. Includes appropriate disclaimers about production usage
