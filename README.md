@@ -1,12 +1,12 @@
-# QRH-256 Cryptographic Hash Algorithm
+# 🧠 QRH-256 Cryptographic Hash Algorithm
 
-## Overview
+## 📝 Overview
 
-QRH-256 is a custom cryptographic hash function implementation designed for educational purposes and demonstrating core cryptographic principles. This implementation provides a complete hashing solution with HMAC support, showcasing modern cryptographic design patterns and secure coding practices.
+🔒 QRH-256 is a custom cryptographic hash function implementation designed for educational purposes and demonstrating core cryptographic principles. This implementation provides a complete hashing solution with HMAC support, showcasing modern cryptographic design patterns and secure coding practices.
 
-**Note**: This is a custom/educational implementation intended for learning and demonstration purposes. For production systems, use well-established cryptographic libraries like OpenSSL.
+⚠️ **Note**: This is a custom/educational implementation intended for learning and demonstration purposes. For production systems, use well-established cryptographic libraries like OpenSSL.
 
-## Features
+## ✅ Features
 
 - **QRH-256 Hash Algorithm**: Custom 256-bit cryptographic hash function
 - **HMAC Support**: Keyed hashing for message authentication
@@ -14,7 +14,7 @@ QRH-256 is a custom cryptographic hash function implementation designed for educ
 - **Configurable Security Parameters**: Adjustable rounds and diffusion settings
 - **Little-Endian Output**: Standard byte ordering for compatibility
 
-## Technical Highlights
+## 💡 Technical Highlights
 
 ### Core Competencies Demonstrated
 
@@ -31,29 +31,27 @@ QRH-256 is a custom cryptographic hash function implementation designed for educ
 - **Length Padding**: Secure message length incorporation into final hash
 - **Keyed Hashing**: HMAC variant for authenticated hashing applications
 
-## Performance Benchmarks
+## ⚡ Performance Benchmarks
 
 ### Large Data Processing Performance
 
 ```
 Large Data Benchmark Summary
-============================
-Average run time: 520.740 ms
-Total time: 1562.220 ms
-Total data processed: 72.00 MB
-Total throughput: 46.09 MB/s
-
-Successful decryptions: 3/3
+==================================================
+Average run time: 988.456 ms
+Total time: 2965.367 ms
+Total data processed: 576.00 MB
+Total throughput: 194.24 MB/s
 
 Benchmark config:
     Total Runs: 3
-    Crypto input buffer size: 8 MB
+    Crypto input buffer size: 64 MB
     Hash algo used: QRH-256
 
 Hashing benchmark:
-    Total time: 922.224 ms
-    Average time: 307.408 ms
-    Average throughput: 26.02 MB/s
+    Total time: 1636.388 ms
+    Average time: 545.463 ms
+    Average throughput: 117.33 MB/s
 ```
 
 ### Avalanche Effect Analysis
@@ -62,7 +60,7 @@ The hash function demonstrates strong avalanche properties, which is critical fo
 
 ```
 QRH-256 Hash Bit Flip Benchmark
-==============================
+================================
 Test Strings:
     String 1: "The quick brown fox jumps over the lazy dog"
     String 2: "The quick brown fox jumps over the lazy dof"  (1 character difference)
@@ -79,7 +77,7 @@ Results:
 
 The 55.86% bit flip rate in the hash output demonstrates excellent avalanche effect, approaching the ideal 50% rate that indicates strong cryptographic behavior.
 
-## API Reference
+## 🛠️ API Reference
 
 ### Main Hash Functions
 
@@ -103,17 +101,17 @@ Compile-time constants allow performance/security trade-offs:
 - `QRH_DIFFUSIONS`: Number of diffusion passes (default: 4)  
 - `QRH_MATRIX_ROUNDS`: Heavy matrix operation rounds (default: 2)
 
-## Performance Considerations
+## 🚀 Performance Considerations
 
 The algorithm includes performance documentation:
 > "Matrix rounds are very heavy - 20 MB/sec per additional round"
 
 This demonstrates awareness of real-world performance implications in cryptographic implementations. Current performance characteristics show:
-- **Hashing Throughput**: 26.02 MB/s average
-- **Large Data Processing**: 46.09 MB/s sustained throughput
+- **Hashing Throughput**: 117.33 MB/s average
+- **Large Data Processing**: 194.24 MB/s sustained throughput
 - **Security vs Performance**: Configurable parameters allow tuning based on requirements
 
-## Usage Example
+## 💻 Usage Example
 
 ```c
 #include "qrh_256.h"
@@ -131,7 +129,7 @@ uint8_t *allocated_hash = qrh_alloc_256(data, data_len);
 // Remember to free(allocated_hash) when done
 ```
 
-## Implementation Details
+## 🔧 Implementation Details
 
 ### Architecture
 
@@ -147,7 +145,7 @@ uint8_t *allocated_hash = qrh_alloc_256(data, data_len);
 3. **Finalization**: Secure output generation
 4. **HMAC Construction**: Standard keyed hashing approach
 
-## Development Notes
+## 📚 Development Notes
 
 This implementation demonstrates several important software engineering practices:
 
@@ -158,6 +156,6 @@ This implementation demonstrates several important software engineering practice
 - **Performance Awareness**: Inline functions and optimization considerations
 - **Benchmarking**: Systematic performance evaluation and analysis
 
-## Disclaimer
+## ⚠️ Disclaimer
 
 This is an educational implementation created to demonstrate cryptographic concepts and C programming skills. While implemented with security best practices in mind, it has not undergone formal cryptanalysis or security auditing. Use established cryptographic libraries for production applications requiring security guarantees.
